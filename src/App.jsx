@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
+
 const App =  () => {
   const [categories, setCategories] = useState([])
   const [newCategory, setNewCategory] = useState({ name: '', description: '', parentid: '' });
@@ -28,18 +29,18 @@ const baseUrl = 'https://learn-react-task-01-production.up.railway.app'
         alert('دیلیت شده')
         fetchCategories()
       })
-      .catch(error => console.log('خطا  :', error));
+      .catch(error => console.log(' خطا  در دیلیت :', error))
   }
-
+ 
   // add  category
   const addCategory = () => {
     axios.post(`${baseUrl}/cat/create`, newCategory)
       .then(res => {
         alert('category ساخته شد');
-        setNewCategory({ name: '', description: '', parentid: '' });
+        setNewCategory({ name: '', description: '', parentid: '' })
         fetchCategories();
       })
-      .catch(error => console.log('خطا  :', error));
+      .catch(error => console.log('خطا  :', error))
   }
 
   // put category
@@ -50,7 +51,7 @@ const baseUrl = 'https://learn-react-task-01-production.up.railway.app'
         setEditCategory()
          fetchCategories()
       })
-      .catch(error => console.log('ارور  در ادیت  شده:', error));
+      .catch(error => console.log('ارور  در ادیت  شده:', error))
       console.log(setEditCategory)
   }
 
