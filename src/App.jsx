@@ -57,22 +57,25 @@ const baseUrl = 'https://learn-react-task-01-production.up.railway.app'
 
   return (
     <div style={{display:"flex" , alignItems:"center" , flexFlow:"column"}}>
-      <h1> Category Lists Nedaa</h1>
+      <h1 style={{color:"pink"}}> Category Lists Nedaa</h1>
         {/* <link href="/src/style.css" rel="stylesheet"></link> */}
 
       {/* listssssssssss*/}
+      <div style={{    display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '8px' }}>
       {Array.isArray(categories) && categories.map(cat => (
-        <div key={cat} style={{ border: '1px solid pink', margin: '10px', padding: '10px', borderRadius:"20px" }}>
+        <div key={cat} style={{ border: '1px solid pink', margin: '10px', padding: '10px', borderRadius:"20px",}}>
           <p>name: {cat.name}</p>
           <p>describe: {cat.describe}</p>
           <p>parentId: {cat.parentid}</p>
-          <button style={{marginRight:"2px"}}  onClick={() => deleteCategory(cat.id)}>حذف</button>
-          <button onClick={() => setEditCategory({ ...cat })}>ادیت</button>
+          <button style={{marginRight:"2px" , color:"red"}}  onClick={() => deleteCategory(cat.id)}>حذف</button>
+          <button style={{color:"purple"}} onClick={() => setEditCategory({ ...cat })}>ادیت</button>
         </div>
       ))}
-
+</div>
       {/* create new category*/}
-      <h2> Create New Category</h2>
+      <div style={{ border:"1px solid yellow", borderRadius:"10px" , display:"flex", flexFlow:"column" , padding:"13px"}}>
+  
+      <h2 style={{color:"yellow"}} > Create New Category</h2>
       <input
         placeholder="name"
         value={newCategory.name}
@@ -90,16 +93,18 @@ const baseUrl = 'https://learn-react-task-01-production.up.railway.app'
       />
       <button style={{marginTop:"4px" , marginBottom:"10px"}} onClick={addCategory}>ساخت</button>
 
+       </div>
+
       {/* Edit Form for categoryyy*/}
       {editCategory && (
-        <div>
-          <h2>Edit  one category</h2>
+        <div style={{ marginTop:"10px", display:"flex" , flexFlow:"column" , border:"4px solid purple" , borderRadius:"10px" , padding:"13px"}}>
+          <h2 style={{color:"purple"}}>Edit one of your category</h2>
           <input
             placeholder="name"
             value={editCategory.name}
             onChange={(e) => setEditCategory({ ...editCategory, name: e.target.value })}
           />
-          <input
+          <input style={{marginTop:"4px" , marginBottom:"4px"}}
             placeholder="describe"
             value={editCategory.describe}
             onChange={(e) => setEditCategory({ ...editCategory, describe: e.target.value })}
