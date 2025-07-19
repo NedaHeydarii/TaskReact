@@ -9,7 +9,6 @@ const App =  () => {
   const [editCategory, setEditCategory] = useState(null)
 const baseUrl = 'https://learn-react-task-01-production.up.railway.app'
 
-  
    useEffect(() =>{
     fetchCategories()
   }, [])
