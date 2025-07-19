@@ -42,7 +42,7 @@ const baseUrl = 'https://learn-react-task-01-production.up.railway.app'
       .catch(error => console.log('خطا  :', error));
   }
 
-  // update category
+  // put category
   const updateCategory = () => {
     axios.put(`${baseUrl}/cat/update`, editCategory)
       .then(() => {
@@ -88,7 +88,7 @@ const baseUrl = 'https://learn-react-task-01-production.up.railway.app'
         value={newCategory.parentid}
         onChange={(e) => setNewCategory({ ...newCategory, parentid: e.target.value })}
       />
-      <button class="margin-y-2" onClick={addCategory}>ساخت</button>
+      <button style={{marginTop:"4px" , marginBottom:"10px"}} onClick={addCategory}>ساخت</button>
 
       {/* Edit Form for categoryyy*/}
       {editCategory && (
