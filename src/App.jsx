@@ -19,7 +19,7 @@ const baseUrl = 'https://learn-react-task-01-production.up.railway.app'
     axios.get(`${baseUrl}/cat/allCat`)
       .then(response => setCategories(response.data))
       .catch(error => console.log('  erorrr:', error));
-  };
+  }
 
   // delete category
   const deleteCategory = (id) => {
@@ -29,7 +29,7 @@ const baseUrl = 'https://learn-react-task-01-production.up.railway.app'
         fetchCategories()
       })
       .catch(error => console.log('خطا  :', error));
-  };
+  }
 
   // add  category
   const addCategory = () => {
@@ -40,7 +40,7 @@ const baseUrl = 'https://learn-react-task-01-production.up.railway.app'
         fetchCategories();
       })
       .catch(error => console.log('خطا  :', error));
-  };
+  }
 
   // update category
   const updateCategory = () => {
@@ -52,16 +52,17 @@ const baseUrl = 'https://learn-react-task-01-production.up.railway.app'
       })
       .catch(error => console.log('ارور  در ادیت  شده:', error));
       console.log(setEditCategory)
-  };
+  }
 
 
   return (
     <div style={{display:"flex" , alignItems:"center" , flexFlow:"column"}}>
       <h1> Category Lists Nedaa</h1>
+        {/* <link href="/src/style.css" rel="stylesheet"></link> */}
 
       {/* listssssssssss*/}
       {Array.isArray(categories) && categories.map(cat => (
-        <div key={cat.id} style={{ border: '1px solid pink', margin: '10px', padding: '10px', borderRadius:"20px" }}>
+        <div key={cat} style={{ border: '1px solid pink', margin: '10px', padding: '10px', borderRadius:"20px" }}>
           <p>name: {cat.name}</p>
           <p>describe: {cat.describe}</p>
           <p>parentId: {cat.parentid}</p>
@@ -77,7 +78,7 @@ const baseUrl = 'https://learn-react-task-01-production.up.railway.app'
         value={newCategory.name}
         onChange={(e) => setNewCategory({ ...newCategory, name: e.target.value })}
       />
-      <input
+      <input style={{marginTop:"5px" , marginBottom:"5px" }}
         placeholder="describe"
         value={newCategory.describe}
         onChange={(e) => setNewCategory({ ...newCategory, describe: e.target.value })}
@@ -87,7 +88,7 @@ const baseUrl = 'https://learn-react-task-01-production.up.railway.app'
         value={newCategory.parentid}
         onChange={(e) => setNewCategory({ ...newCategory, parentid: e.target.value })}
       />
-      <button onClick={addCategory}>ساخت</button>
+      <button class="margin-y-2" onClick={addCategory}>ساخت</button>
 
       {/* Edit Form for categoryyy*/}
       {editCategory && (
