@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
-function App() {
+const App =  () => {
   const [categories, setCategories] = useState([])
   const [newCategory, setNewCategory] = useState({ name: '', description: '', parentid: '' });
   const [editCategory, setEditCategory] = useState(null)
